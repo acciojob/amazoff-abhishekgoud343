@@ -7,7 +7,7 @@ public class DeliveryPartner {
 
     public DeliveryPartner(String id) {
         this.id = id;
-        this.numberOfOrders = 0;
+        this.numberOfOrders = 0; //initially the no of orders is zero
     }
 
     public String getId() {
