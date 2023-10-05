@@ -30,7 +30,7 @@ public class OrderController {
     }
 
     @PostMapping("/add-partner/{partnerId}")
-    public ResponseEntity<String> addPartner(@PathVariable String partnerId){
+    public ResponseEntity<String> addPartner(@PathVariable String partnerId) {
         try {
             orderServiceObj.addPartner(partnerId);
             return new ResponseEntity<>("New delivery partner added successfully", HttpStatus.CREATED);
@@ -41,7 +41,7 @@ public class OrderController {
     }
 
     @PutMapping("/add-order-partner-pair")
-    public ResponseEntity<String> addOrderPartnerPair(@RequestParam String orderId, @RequestParam String partnerId){
+    public ResponseEntity<String> addOrderPartnerPair(@RequestParam String orderId, @RequestParam String partnerId) {
         //This is basically assigning that order to that partnerId
         try {
             orderServiceObj.addOrderPartnerPair(orderId, partnerId);
@@ -124,7 +124,7 @@ public class OrderController {
         }
     }
 
-    @GetMapping("/get-count-of-orders-left-after-given-time/{partnerId}")
+    @GetMapping("/get-count-of-orders-left-after-given-time/{time}/{partnerId}")
     public ResponseEntity<Integer> getOrdersLeftAfterGivenTimeByPartnerId(@PathVariable String time, @PathVariable String partnerId) {
         //countOfOrders that are left after a particular time of a DeliveryPartner
         try {
@@ -149,7 +149,7 @@ public class OrderController {
     }
 
     @DeleteMapping("/delete-partner-by-id/{partnerId}")
-    public ResponseEntity<String> deletePartnerById(@PathVariable String partnerId){
+    public ResponseEntity<String> deletePartnerById(@PathVariable String partnerId) {
         //Delete the partnerId
         //And push all his assigned orders to unassigned orders.
         try {
@@ -162,7 +162,7 @@ public class OrderController {
     }
 
     @DeleteMapping("/delete-order-by-id/{orderId}")
-    public ResponseEntity<String> deleteOrderById(@PathVariable String orderId){
+    public ResponseEntity<String> deleteOrderById(@PathVariable String orderId) {
         //Delete an order and also
         // remove it from the assigned order of that partnerId
         try {
