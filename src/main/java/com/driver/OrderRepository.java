@@ -3,7 +3,6 @@ package com.driver;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -62,6 +61,7 @@ public class OrderRepository {
             throw new Exception("A delivery partner with this partnerId was found in the database");
 
         deliveryPartnerDb.remove(partnerId);
+
         orderPartnerDb.remove(partnerId);
     }
 
