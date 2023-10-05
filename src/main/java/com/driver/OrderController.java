@@ -41,7 +41,7 @@ public class OrderController {
     }
 
     @PutMapping("/add-order-partner-pair")
-    public ResponseEntity<String> addOrderPartnerPair(@RequestParam String orderId, @RequestParam String partnerId) {
+    public ResponseEntity<String> addOrderPartnerPair(@RequestParam("orderId") String orderId, @RequestParam("partnerId") String partnerId) {
         //This is basically assigning that order to that partnerId
         try {
             orderServiceObj.addOrderPartnerPair(orderId, partnerId);
@@ -124,8 +124,8 @@ public class OrderController {
         }
     }
 
-    @GetMapping("/get-count-of-orders-left-after-given-time/{time}/{partnerId}")
-    public ResponseEntity<Integer> getOrdersLeftAfterGivenTimeByPartnerId(@PathVariable String time, @PathVariable String partnerId) {
+    @GetMapping("/get-count-of-orders-left-after-given-time/{partnerId}")
+    public ResponseEntity<Integer> getOrdersLeftAfterGivenTimeByPartnerId(@RequestParam("time") String time, @PathVariable String partnerId) {
         //countOfOrders that are left after a particular time of a DeliveryPartner
         try {
             Integer countOfOrders = orderServiceObj.getOrdersLeftAfterGivenTimeByPartnerId(time, partnerId);
